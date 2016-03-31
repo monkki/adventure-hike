@@ -33,6 +33,9 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = UIColor.lightGrayColor()
+        self.tabla.backgroundColor = UIColor.clearColor()
+        
         obtenerJson()
         
         tabla.delegate = self
@@ -208,7 +211,16 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tabla.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! TableViewCell
         
-       
+        if indexPath.row == 0 {
+            
+            let vistaDestacado = UIImage(named: "eventoDeLaSemana.png")
+            let vista = UIImageView()
+            vista.image = vistaDestacado
+            vista.frame = CGRectMake(0, 10, 170, 30)
+            
+            cell.addSubview(vista)
+            
+        }
         
         dispatch_async(dispatch_get_main_queue()) { () -> Void in
             
@@ -219,25 +231,39 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                 let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                 dispatch_async(dispatch_get_global_queue(priority, 0)) {
                     // do some task
-                    let image_data = NSData(contentsOfURL: image_url!)
-                    
-                    dispatch_async(dispatch_get_main_queue()) {
-                        // update some UI
-                        let image = UIImage(data: image_data!)
-                        cell.imagenCelda.image = image
-                        JHProgressHUD.sharedHUD.hide()
+                    if let image_data = NSData(contentsOfURL: image_url!) {
+                        
+                        dispatch_async(dispatch_get_main_queue()) {
+                            // update some UI
+                            let image = UIImage(data: image_data)
+                            cell.imagenCelda.image = image
+                            JHProgressHUD.sharedHUD.hide()
+                        }
+                        
+                    } else {
+                        print("Hubo un error al obtener image data")
                     }
+                    
                 }
                 
-                cell.tituloLabel.text = self.tituloArray[indexPath.row]
+                cell.tituloLabel.text = self.tituloArray[indexPath.row].uppercaseString
                 cell.checkInLabel.text = "\(self.checkInArray[indexPath.row])"
                 cell.likesLabel.text = "\(self.likenArray[indexPath.row])"
+                cell.descripcionLabel.text = self.descripcionArrayString[indexPath.row]
                 
             }
             
         }
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 250
+        }
+        
+        return 125
     }
 
 

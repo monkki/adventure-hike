@@ -399,20 +399,22 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
                                     let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
                                     dispatch_async(dispatch_get_global_queue(priority, 0)) {
                                         // do some task
-                                        let image_data = NSData(contentsOfURL: image_url!)
-                                        
-                                        dispatch_async(dispatch_get_main_queue()) {
-                                            // update some UI
-                                            let image = UIImage(data: image_data!)
+                                        if let image_data = NSData(contentsOfURL: image_url!) {
                                             
-                                            if image == nil {
+                                            dispatch_async(dispatch_get_main_queue()) {
+                                                // update some UI
+                                                let image = UIImage(data: image_data)
                                                 
-                                                cell.imagenUsuario.image = UIImage(named: "fotoPlaceholder")
-                                                
-                                            } else {
-                                                
-                                                cell.imagenUsuario.image = image
+                                                if image == nil {
+                                                    
+                                                    cell.imagenUsuario.image = UIImage(named: "fotoPlaceholder")
+                                                    
+                                                } else {
+                                                    
+                                                    cell.imagenUsuario.image = image
+                                                }
                                             }
+                                            
                                         }
                                         
                                     }

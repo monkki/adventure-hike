@@ -15,6 +15,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet var likesLabel: UILabel!
     @IBOutlet var checkInLabel: UILabel!
     @IBOutlet var tituloLabel: UILabel!
+    @IBOutlet var descripcionLabel: UILabel!
     
     
     override func awakeFromNib() {

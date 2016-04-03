@@ -38,7 +38,7 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
     let nombreCompleto = NSUserDefaults.standardUserDefaults().objectForKey("nombre")
 
     //IBOutlets
-    @IBOutlet var imagenDetalle: UIImageView!
+    @IBOutlet var fotoSlider: UIScrollView!
     @IBOutlet var descripcionLabel: UILabel!
     @IBOutlet var tituloLabel: UILabel!
     @IBOutlet var ubicacionLabel: UILabel!
@@ -49,6 +49,8 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet var tablaComentarios: UITableView!
     @IBOutlet var comentarioTextView: UITextView!
     @IBOutlet var distanciaMetrosLabel: UILabel!
+    @IBOutlet var botonDetalleLocal: UIButton!
+    
     
     // Fotos Usuario
     @IBOutlet var fotoUsuario: UIImageView!
@@ -79,6 +81,21 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //BOTON DETALLE LOCAL
+        botonDetalleLocal.setBackgroundImage(UIImage(named: "AHDetalleLocal.png"), forState: UIControlState.Normal)
+        
+        //Slide de fotos
+        fotoSlider.auk.startAutoScroll(delaySeconds: 5)
+        fotoSlider.auk.settings.contentMode = UIViewContentMode.ScaleToFill
+        fotoSlider.auk.settings.pageControl.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.3)
+        fotoSlider.auk.settings.placeholderImage = UIImage(named: "placeholder.jpg")
+        
+        fotoSlider.auk.show(url: imagenRecibida)
+        fotoSlider.auk.show(url: imagenRecibida)
+        fotoSlider.auk.show(url: imagenRecibida)
+
+        
         
         //Foto Usuario
         fotoUsuario.layer.borderWidth = 1
@@ -139,32 +156,19 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
         
         
         // Iniciar Loader
-        JHProgressHUD.sharedHUD.showInView(view, withHeader: "Cargando", andFooter: "Por favor espere...")
+        JHProgressHUD.sharedHUD.showInView(view, withHeader: "Cargando comentarios", andFooter: "Por favor espere...")
 
-        // Procesar imagen de String a UIImage
-        let image_url = NSURL(string: imagenRecibida)
+        //
+        //let image_url = NSURL(string: imagenRecibida)
         
+        // Cargar Comentarios
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0)) {
-            // do some task
-            let image_data = NSData(contentsOfURL: image_url!)
             
-            if let image_data = image_data {
-                
-                dispatch_async(dispatch_get_main_queue()) {
-                    // update some UI
-                    self.image = UIImage(data: image_data)!
-                    self.imagenDetalle.image = self.image
-                    // Iniciar Loader
-                    self.recibirComentarios(String(self.idRecibida))
-                    JHProgressHUD.sharedHUD.hide()
-                }
-                
-            } else {
-                
-                self.mostraMSJ("No hay conexion a internet, intente nuevamente mas tarde")
+            dispatch_async(dispatch_get_main_queue()) {
+                   
+                self.recibirComentarios(String(self.idRecibida))
                 JHProgressHUD.sharedHUD.hide()
-                
             }
             
         }
@@ -204,31 +208,35 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     
+    
     // METODO PARA RECIBIR LOS COMENTARIOS
     
     func recibirComentarios(idEvento: String) {
         
-        let urlString = "http://intercubo.com/ah/api/archivo.php?tipo=Comments&id=" +  idEvento
-        let url: NSURL = NSURL(string: urlString)!
+        let urlString = "http://intercubo.com/ah/api/archivo.php?tipo=Comments&id=\(idEvento)"
+        let url = NSURL(string: urlString)
         
-        if let url2: NSURL = url {
+        if let url = url {
             
-            let task = NSURLSession.sharedSession().dataTaskWithURL(url2) { (data, response, error) -> Void in
+            let task = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
                 
                 if error != nil {
                     
                     print(error?.localizedDescription)
                     
                 }
-                    
+           
                 if let data = data {
+
                     
+
                     do {
                         
                         let jsonResponse = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSMutableArray
                         
                        // print(jsonResponse)
-                        
+                     
+  
                         self.usuariosArray.removeAll()
                         self.comentariosArray.removeAll()
                         self.imagenArray.removeAll()
@@ -237,9 +245,9 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
                         self.idComentarioArray.removeAll()
                         self.idUsuarioArray.removeAll()
                         self.fbidArray.removeAll()
-                        
+                       
                         for json in jsonResponse {
-                            
+     
                             let usuario = json["nombreusuario"] as! String
                             let comentario = json["comentario"] as! String
                             let imagenUsuario = json["displayusuario"] as! String
@@ -247,9 +255,10 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
                             let idEvento = json["evento"] as! Int
                             let idComentario = json["id"] as! Int
                             let idUsuario = json["usuario"] as! Int
-                            let fbid = json["fbid"] as AnyObject
+
+                            let fbid = json["fbid"]
                            // print(idUsuario)
-                            
+
                             self.usuariosArray.append(usuario)
                             self.comentariosArray.append(comentario)
                             self.imagenArray.append(imagenUsuario)
@@ -257,20 +266,22 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
                             self.idEventoArray.append(idEvento)
                             self.idComentarioArray.append(idComentario)
                             self.idUsuarioArray.append(idUsuario)
-                            self.fbidArray.append(fbid)
+                            self.fbidArray.append(fbid!!)
                             
                         }
                         
                         
                        // print(self.fbidArray)
-                        
+
                         
                     } catch {
                         
                     }
                     
-                    
+ 
                 }
+ 
+ 
                 
                 dispatch_async(dispatch_get_main_queue(), { () -> Void in
                     self.tablaComentarios.reloadData()
@@ -285,9 +296,11 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
             print("Hay un problema al armar el URL")
         
         }
-        
+ 
         
     }
+ 
+ 
     
     // METODO PARA POSTEAR COMENTARIOS
     
@@ -490,6 +503,13 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
         self.recibirComentarios(String(idRecibida))
         
     }
+    
+    
+     // BOTON PARA VER DETALLE DEL LOCAL
+    
+    @IBAction func botonDetalleLocalAccion(sender: AnyObject) {
+    }
+    
     
     
     // METODO BOTON CORAZON/LIKE

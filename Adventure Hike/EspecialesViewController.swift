@@ -260,10 +260,10 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 250
+            return 280
         }
         
-        return 125
+        return 145
     }
 
 

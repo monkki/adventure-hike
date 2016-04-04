@@ -216,7 +216,7 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
             let vistaDestacado = UIImage(named: "eventoDeLaSemana.png")
             let vista = UIImageView()
             vista.image = vistaDestacado
-            vista.frame = CGRectMake(0, 10, 170, 30)
+            vista.frame = CGRectMake(0, 10, 180, 30)
             
             cell.addSubview(vista)
             

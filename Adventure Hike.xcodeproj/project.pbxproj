@@ -45,6 +45,7 @@
 		5C88BC5A1C485A1000FB0CF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C88BC591C485A1000FB0CF7 /* LoginViewController.swift */; };
 		5CB270E01CB196330048EBE4 /* MoaDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB270DF1CB196330048EBE4 /* MoaDistrib.swift */; };
 		5CB270E21CB196490048EBE4 /* AukDistrib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB270E11CB196490048EBE4 /* AukDistrib.swift */; };
+		5CB270E41CB202940048EBE4 /* DetalleLocalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB270E31CB202940048EBE4 /* DetalleLocalViewController.swift */; };
 		5CB80A4C1C44851B0032036C /* ComentariosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB80A4B1C44851B0032036C /* ComentariosTableViewCell.swift */; };
 		5CF042571C56942300E59C0A /* libkontakt-ios-sdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CF042561C56942300E59C0A /* libkontakt-ios-sdk.a */; };
 		5CF042591C56A20200E59C0A /* MapaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF042581C56A20200E59C0A /* MapaViewController.swift */; };
@@ -98,6 +99,7 @@
 		5C88BC591C485A1000FB0CF7 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5CB270DF1CB196330048EBE4 /* MoaDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoaDistrib.swift; sourceTree = "<group>"; };
 		5CB270E11CB196490048EBE4 /* AukDistrib.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AukDistrib.swift; sourceTree = "<group>"; };
+		5CB270E31CB202940048EBE4 /* DetalleLocalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleLocalViewController.swift; sourceTree = "<group>"; };
 		5CB80A4B1C44851B0032036C /* ComentariosTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComentariosTableViewCell.swift; sourceTree = "<group>"; };
 		5CF042561C56942300E59C0A /* libkontakt-ios-sdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libkontakt-ios-sdk.a"; path = "kontakt-ios-sdk/libkontakt-ios-sdk.a"; sourceTree = "<group>"; };
 		5CF042581C56A20200E59C0A /* MapaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapaViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				5C7EE5FE1C39D53D00DB77EE /* Main.storyboard */,
 				5CF7E20C1C3AF714001A21AA /* EspecialesViewController.swift */,
 				5CF7E2131C3B6E52001A21AA /* DetalleViewController.swift */,
+				5CB270E31CB202940048EBE4 /* DetalleLocalViewController.swift */,
 				5C08F53F1C3F1DA400D58C8A /* PerfilViewController.swift */,
 				5C08F53D1C3F1BD300D58C8A /* AgendaViewController.swift */,
 				5C7EE6011C39D53D00DB77EE /* Assets.xcassets */,
@@ -373,6 +376,7 @@
 				5C3F1CD11C4ED8A8007BAE4A /* IQKeyboardManagerConstantsInternal.swift in Sources */,
 				5CF7E20F1C3B13F5001A21AA /* TableViewCell.swift in Sources */,
 				5CF7E20B1C3AF67D001A21AA /* Urls.swift in Sources */,
+				5CB270E41CB202940048EBE4 /* DetalleLocalViewController.swift in Sources */,
 				5C3F1CCD1C4ED8A8007BAE4A /* IQUIView+Hierarchy.swift in Sources */,
 				5C08F5401C3F1DA400D58C8A /* PerfilViewController.swift in Sources */,
 				5C7EE5FD1C39D53D00DB77EE /* ViewController.swift in Sources */,

@@ -85,10 +85,10 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
         //BOTON DETALLE LOCAL
         botonDetalleLocal.setBackgroundImage(UIImage(named: "AHDetalleLocal.png"), forState: UIControlState.Normal)
         
-        //Slide de fotos
+        //Slider de fotos
         fotoSlider.auk.startAutoScroll(delaySeconds: 5)
         fotoSlider.auk.settings.contentMode = UIViewContentMode.ScaleToFill
-        fotoSlider.auk.settings.pageControl.backgroundColor = UIColor.grayColor().colorWithAlphaComponent(0.3)
+        fotoSlider.auk.settings.pageControl.visible = false
         fotoSlider.auk.settings.placeholderImage = UIImage(named: "placeholder.jpg")
         
         fotoSlider.auk.show(url: imagenRecibida)
@@ -735,6 +735,19 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
             destinoVC.latitude = latitude
             destinoVC.longitude = longitude
         
+        } else if segue.identifier == "detalleLocalSegue" {
+            
+            let destinoVC = segue.destinationViewController as! DetalleLocalViewController
+            destinoVC.imagenRecibida = imagenRecibida
+            destinoVC.tituloRecibida = tituloRecibida
+            destinoVC.checkInRecibidos = checkInRecibidos
+            destinoVC.likedRecibida = likedRecibida
+            destinoVC.likenRecibida = likenRecibida
+            destinoVC.lugarRecibida = lugarRecibida
+            destinoVC.placeRecibida = placeRecibida
+            destinoVC.descripcionRecibida = descripcionRecibida
+            destinoVC.fechaRecibida = fechaRecibida
+            destinoVC.horarioRecibida = horarioRecibida
         }
         
     }
@@ -909,6 +922,7 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
         alertView.showError("Error ", subTitle: "Porfavor verifique su conexion a internet")
     
     }
-    
+
+
 
 }

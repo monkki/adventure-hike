@@ -9,5 +9,6 @@
 #import <CoreBluetooth/CoreBluetooth.h>
 
 #import "KontaktSDK.h"
+#import "SWRevealViewController.h"
 
 

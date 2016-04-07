@@ -29,9 +29,19 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     var longitudArray = [Double]()
     var checkInArray = [Int]()
     
-
+    @IBOutlet var filtrarButton:UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if revealViewController() != nil {
+            
+            revealViewController().rightViewRevealWidth = 280
+            filtrarButton.target = revealViewController()
+            filtrarButton.action = "rightRevealToggle:"
+            
+            view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        }
         
         self.view.backgroundColor = UIColor.lightGrayColor()
         self.tabla.backgroundColor = UIColor.clearColor()

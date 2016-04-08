@@ -36,7 +36,7 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
         
         if revealViewController() != nil {
             
-            revealViewController().rightViewRevealWidth = 280
+            revealViewController().rightViewRevealWidth = 290
             filtrarButton.target = revealViewController()
             filtrarButton.action = "rightRevealToggle:"
             

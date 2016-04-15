@@ -16,6 +16,7 @@ class TableViewCell: UITableViewCell {
     @IBOutlet var checkInLabel: UILabel!
     @IBOutlet var tituloLabel: UILabel!
     @IBOutlet var descripcionLabel: UILabel!
+    @IBOutlet var comentariosLabel: UILabel!
     
     
     override func awakeFromNib() {

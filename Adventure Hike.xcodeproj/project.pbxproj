@@ -15,6 +15,7 @@
 		5C29C9F41C52C1A20053AD46 /* notificacion.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 5C29C9F31C52C1A20053AD46 /* notificacion.mp3 */; };
 		5C29C9F61C52C4030053AD46 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C29C9F51C52C4030053AD46 /* AVFoundation.framework */; };
 		5C29C9F81C52E0CF0053AD46 /* SCLAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C29C9F71C52E0CF0053AD46 /* SCLAlertView.swift */; };
+		5C2CBAD01CC0862800E56E11 /* Mapa2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C2CBACF1CC0862800E56E11 /* Mapa2ViewController.swift */; };
 		5C37C3591CB68B530082E69B /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C37C3581CB68B530082E69B /* SWRevealViewController.m */; };
 		5C37C35B1CB74D680082E69B /* TablaLateralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C37C35A1CB74D680082E69B /* TablaLateralViewController.swift */; };
 		5C3F1CC91C4ED8A8007BAE4A /* IQKeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F1CBA1C4ED8A8007BAE4A /* IQKeyboardManager.swift */; };
@@ -71,6 +72,7 @@
 		5C29C9F31C52C1A20053AD46 /* notificacion.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = notificacion.mp3; sourceTree = "<group>"; };
 		5C29C9F51C52C4030053AD46 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5C29C9F71C52E0CF0053AD46 /* SCLAlertView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SCLAlertView.swift; sourceTree = "<group>"; };
+		5C2CBACF1CC0862800E56E11 /* Mapa2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mapa2ViewController.swift; sourceTree = "<group>"; };
 		5C37C3571CB68B530082E69B /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		5C37C3581CB68B530082E69B /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		5C37C35A1CB74D680082E69B /* TablaLateralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TablaLateralViewController.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				5CB80A4B1C44851B0032036C /* ComentariosTableViewCell.swift */,
 				5C3F1CD91C4EFA3A007BAE4A /* ContrasenaFaceViewController.swift */,
 				5CF042581C56A20200E59C0A /* MapaViewController.swift */,
+				5C2CBACF1CC0862800E56E11 /* Mapa2ViewController.swift */,
 				5CA203EF1CB444450067E32F /* MapaPageViewController.swift */,
 				5CA203F11CB444E40067E32F /* MapaPageItemsViewController.swift */,
 				5C37C35A1CB74D680082E69B /* TablaLateralViewController.swift */,
@@ -421,6 +424,7 @@
 				5C4637041C46F96000522DD3 /* RegistrarViewController.swift in Sources */,
 				5C88BC5A1C485A1000FB0CF7 /* LoginViewController.swift in Sources */,
 				5CA203EE1CB444080067E32F /* EMPageViewController.swift in Sources */,
+				5C2CBAD01CC0862800E56E11 /* Mapa2ViewController.swift in Sources */,
 				5C3F1CDA1C4EFA3A007BAE4A /* ContrasenaFaceViewController.swift in Sources */,
 				5C08F53E1C3F1BD300D58C8A /* AgendaViewController.swift in Sources */,
 				5C3F1CD41C4ED8A8007BAE4A /* IQTitleBarButtonItem.swift in Sources */,

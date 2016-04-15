@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TablaLateralViewController: UITableViewController {
+class TablaLateralViewController: UITableViewController, SWRevealViewControllerDelegate {
     
     // IBOutlets
     @IBOutlet var botonMuseo: UIButton!
@@ -23,19 +23,28 @@ class TablaLateralViewController: UITableViewController {
     
     
     // Booleans
-    var botonMuseoSeleccionado = false
-    var botonTeatroSeleccionado = false
-    var botonDanzaSeleccionado = false
-    var botonMusicaSeleccionado = false
-    var botonExposicionesSeleccionado = false
-    var botonLiteraturaSeleccionado = false
-    var botonCineSeleccionado = false
-    var botonMonumentosSeleccionado = false
+    var botonMuseoSeleccionado = true
+    var botonTeatroSeleccionado = true
+    var botonDanzaSeleccionado = true
+    var botonMusicaSeleccionado = true
+    var botonExposicionesSeleccionado = true
+    var botonLiteraturaSeleccionado = true
+    var botonCineSeleccionado = true
+    var botonMonumentosSeleccionado = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        
+        revealViewController().delegate = self
+        
+        if self.revealViewController() != nil {
+            
+            self.view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+           // self.view.addGestureRecognizer(self.revealViewController().tapGestureRecognizer())
+        }
+        
+        //view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -183,6 +192,14 @@ class TablaLateralViewController: UITableViewController {
         }
         
     }
-
+    
+    func revealController(revealController: SWRevealViewController!, didMoveToPosition position: FrontViewPosition) {
+        
+        if position == FrontViewPosition.Left {
+             print("Ey You")
+            NSNotificationCenter.defaultCenter().postNotificationName("load", object: nil)
+        }
+       
+    }
 
 }

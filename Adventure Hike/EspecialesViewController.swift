@@ -28,11 +28,15 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     var latitudArray = [Double]()
     var longitudArray = [Double]()
     var checkInArray = [Int]()
+    var comentariosArray = [Int]()
+    var categoriasArray = [Int]()
     
     @IBOutlet var filtrarButton:UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EspecialesViewController.loadList(_:)),name:"load", object: nil)
         
         if revealViewController() != nil {
             
@@ -55,6 +59,10 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
         
         
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        print("Pagina load")
     }
     
     func obtenerJson() {
@@ -114,6 +122,8 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                                 let latitud = json["latitud"] as! Double
                                 let longitud = json["longitud"] as! Double
                                 let checkins = json["checkins"] as! Int
+                                let comentarios = json["comentarios"] as! Int
+                                let categoria = json["categoria"] as! Int
                             
                                 self.imagenesArray.append(imagen)
                                 self.descripcionArrayHTML.append(descripcion)
@@ -128,6 +138,9 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                                 self.latitudArray.append(latitud)
                                 self.longitudArray.append(longitud)
                                 self.checkInArray.append(checkins)
+                                self.comentariosArray.append(comentarios)
+                                self.categoriasArray.append(categoria)
+                                
                             }
                         
                         
@@ -232,38 +245,37 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
             
         }
         
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
             
-            if self.descripcionArrayString.count > 0 {
+        if self.descripcionArrayString.count > 0 {
                 
-                let image_url = NSURL(string: self.imagenesArray[indexPath.row])
+            let image_url = NSURL(string: self.imagenesArray[indexPath.row])
                 
-                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-                dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                    // do some task
-                    if let image_data = NSData(contentsOfURL: image_url!) {
+            let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+            dispatch_async(dispatch_get_global_queue(priority, 0)) {
+                // do some task
+                if let image_data = NSData(contentsOfURL: image_url!) {
                         
-                        dispatch_async(dispatch_get_main_queue()) {
-                            // update some UI
-                            let image = UIImage(data: image_data)
-                            cell.imagenCelda.image = image
-                            JHProgressHUD.sharedHUD.hide()
-                        }
-                        
-                    } else {
-                        print("Hubo un error al obtener image data")
+                    dispatch_async(dispatch_get_main_queue()) {
+                        // update some UI
+                        let image = UIImage(data: image_data)
+                        cell.imagenCelda.image = image
+                        JHProgressHUD.sharedHUD.hide()
                     }
-                    
+                        
+                } else {
+                    print("Hubo un error al obtener image data")
                 }
-                
-                cell.tituloLabel.text = self.tituloArray[indexPath.row].uppercaseString
-                cell.checkInLabel.text = "\(self.checkInArray[indexPath.row])"
-                cell.likesLabel.text = "\(self.likenArray[indexPath.row])"
-                cell.descripcionLabel.text = self.descripcionArrayString[indexPath.row]
-                
+                    
             }
-            
+                
+            cell.tituloLabel.text = self.tituloArray[indexPath.row].uppercaseString
+            cell.checkInLabel.text = "\(self.checkInArray[indexPath.row])"
+            cell.likesLabel.text = "\(self.likenArray[indexPath.row])"
+            cell.descripcionLabel.text = self.descripcionArrayString[indexPath.row]
+            cell.comentariosLabel.text = "\(self.comentariosArray[indexPath.row])"
+                
         }
+            
         
         return cell
     }
@@ -307,6 +319,11 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
         alerta.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Cancel, handler: nil))
         self.presentViewController(alerta, animated: true, completion: nil)
         
+    }
+    
+    func loadList(notification: NSNotification){
+        //load data here
+        print("Hola putitos")
     }
     
 

@@ -32,37 +32,37 @@ class MapaPageItemsViewController: UIViewController, MKMapViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.label.text = eventos.uppercaseString
-        localLabel.text = local
-        fechasLabel.text = fecha
-        horariosLabel.text = horario
-        
-        self.controladorPagina.currentPage = index
-        self.controladorPagina.numberOfPages = numeroDePaginas
-        
-        //Mapa
-        let point = MKPointAnnotation()
-        
-        
-        point.coordinate = ubicacion
-        point.title = eventos
-        point.subtitle = local
-        mapa.addAnnotation(point)
-        
-        mapa.delegate = self
-        
-        
-        let latDelta = 0.005
-        let lonDelta = 0.005
-        
-        let region = MKCoordinateRegion(center: ubicacion, span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
-        
-        //Span of the map
-        mapa.setRegion(region, animated: true)
-
-        
-        
+        dispatch_async(dispatch_get_main_queue()) {
+            
+            self.label.text = self.eventos.uppercaseString
+            self.localLabel.text = self.local
+            self.fechasLabel.text = self.fecha
+            self.horariosLabel.text = self.horario
+            
+            self.controladorPagina.currentPage = self.index
+            self.controladorPagina.numberOfPages = self.numeroDePaginas
+            
+            //Mapa
+            let point = MKPointAnnotation()
+            
+            
+            point.coordinate = self.ubicacion
+            point.title = self.eventos
+            point.subtitle = self.local
+            self.mapa.addAnnotation(point)
+            
+            self.mapa.delegate = self
+            
+            
+            let latDelta = 0.005
+            let lonDelta = 0.005
+            
+            let region = MKCoordinateRegion(center: self.ubicacion, span: MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: lonDelta))
+            
+            //Span of the map
+            self.mapa.setRegion(region, animated: true)
+            
+        }
 
     }
     

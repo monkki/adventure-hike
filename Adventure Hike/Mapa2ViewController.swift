@@ -1,19 +1,18 @@
 //
-//  DetalleLocalViewController.swift
+//  Mapa2ViewController.swift
 //  Adventure Hike
 //
-//  Created by Roberto Gutierrez on 03/04/16.
+//  Created by Roberto Gutierrez on 14/04/16.
 //  Copyright © 2016 Roberto Gutierrez. All rights reserved.
 //
 
 import UIKit
+import MapKit
+import CoreLocation
 
-class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class Mapa2ViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
-    //Tabla
-    @IBOutlet var tabla: UITableView!
-    
-    // Valores para obtener Eventos del Local
+    //Datos a Recibir de Json
     var imagenesArray = [String]()
     var imagenesArrayUIImageViews = [UIImage]()
     var descripcionArrayHTML = [String]()
@@ -29,62 +28,59 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
     var latitudArray = [Double]()
     var longitudArray = [Double]()
     var checkInArray = [Int]()
+    var comentariosArray = [Int]()
+    var categoriasArray = [Int]()
+    
+    var tituloDelPin: String!
 
+    // Localizacion usuario
+    var locationManager: CLLocationManager!
     
-    //Valores recibidos
-    var imagenRecibida: String!
-    var descripcionRecibida: String!
-    var fechaRecibida: String!
-    var horarioRecibida: String!
-    var idRecibida: Int!
-    var likedRecibida: Int!
-    var likenRecibida: Int!
-    var lugarRecibida: Int!
-    var placeRecibida: String!
+    //Datos Recibibos
+    var latitudRecibida: CLLocationDegrees!
+    var longituRecibida: CLLocationDegrees!
     var tituloRecibida: String!
-    var latitudRecibida: Double!
-    var longitudRecibida: Double!
-    var checkInRecibidos: Int!
     
-    //IBOutlets
-    @IBOutlet var sliderFotos: UIScrollView!
-    @IBOutlet var nombreLocalLabel: UILabel!
-    @IBOutlet var checkInsLabel: UILabel!
-    @IBOutlet var likesLabel: UILabel!
-    @IBOutlet var ubicacionLabel: UILabel!
-    @IBOutlet var fechaLabel: UILabel!
-    @IBOutlet var horarioLabel: UILabel!
+    var myRoute : MKRoute?
     
+    // UBICACION USUARIO
+    var latitude: CLLocationDegrees!
+    var longitude: CLLocationDegrees!
+    
+    @IBOutlet weak var map: MKMapView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        tabla.delegate = self
-        tabla.dataSource = self
-        tabla.backgroundColor = UIColor.clearColor()
+        self.map.delegate = self
+        
+        if (CLLocationManager.locationServicesEnabled())
+        {
+            locationManager = CLLocationManager()
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
         
         obtenerJson()
         
         // Iniciar Loader
         JHProgressHUD.sharedHUD.showInView(view, withHeader: "Cargando", andFooter: "Por favor espere...")
-
-        //Slider de fotos
-        sliderFotos.auk.startAutoScroll(delaySeconds: 5)
-        sliderFotos.auk.settings.contentMode = UIViewContentMode.ScaleToFill
-        sliderFotos.auk.settings.pageControl.visible = false
-        sliderFotos.auk.settings.placeholderImage = UIImage(named: "placeholder.jpg")
         
-        sliderFotos.auk.show(url: imagenRecibida)
-        sliderFotos.auk.show(url: imagenRecibida)
-        sliderFotos.auk.show(url: imagenRecibida)
+    }
+    
+    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
-        self.title = placeRecibida.uppercaseString
-        nombreLocalLabel.text = placeRecibida.uppercaseString
-        checkInsLabel.text = "\(checkInRecibidos)"
-        likesLabel.text = "\(likenRecibida)"
-        ubicacionLabel.text = placeRecibida
-        fechaLabel.text = fechaRecibida
-        horarioLabel.text = horarioRecibida
+        let location = locations.last! as CLLocation
+        
+        let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        
+        
+        self.map.showsUserLocation = true
+        self.map.setRegion(region, animated: true)
+        locationManager.stopUpdatingLocation()
         
     }
 
@@ -93,66 +89,11 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - Delegados de tabla
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return descripcionArrayString.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tabla.dequeueReusableCellWithIdentifier("CellLocal", forIndexPath: indexPath) as! TableViewCell
-        
-        cell.backgroundColor = UIColor.clearColor()
-        
-        dispatch_async(dispatch_get_main_queue()) { () -> Void in
-            
-            if self.descripcionArrayString.count > 0 {
-                
-                let image_url = NSURL(string: self.imagenesArray[indexPath.row])
-                
-                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-                dispatch_async(dispatch_get_global_queue(priority, 0)) {
-                    // do some task
-                    if let image_data = NSData(contentsOfURL: image_url!) {
-                        
-                        dispatch_async(dispatch_get_main_queue()) {
-                            // update some UI
-                            let image = UIImage(data: image_data)
-                            cell.imagenCelda.image = image
-                            JHProgressHUD.sharedHUD.hide()
-                        }
-                        
-                    } else {
-                        print("Hubo un error al obtener image data")
-                    }
-                    
-                }
-                
-                cell.tituloLabel.text = self.tituloArray[indexPath.row].uppercaseString
-                cell.checkInLabel.text = "\(self.checkInArray[indexPath.row])"
-                cell.likesLabel.text = "\(self.likenArray[indexPath.row])"
-                cell.descripcionLabel.text = self.descripcionArrayString[indexPath.row]
-                
-            }
-            
-        }
-
-        
-        return cell
-    }
-    
-    
-
-    // MARK: - Obtener servicios web
-    
     func obtenerJson() {
         
         let idUsuario = NSUserDefaults.standardUserDefaults().objectForKey("idUsuario") as! Int
         
-        let urlPath = "http://intercubo.com/ah/api/archivo.php?tipo=EventosLocal&idLugar=" + "\(lugarRecibida)" + "&u=" + "\(idUsuario)"
+        let urlPath = "http://intercubo.com/ah/api/archivo.php?tipo=Home" + "&u=" + "\(idUsuario)"
         
         let url = NSURL(string: urlPath)!
         
@@ -205,6 +146,8 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
                                 let latitud = json["latitud"] as! Double
                                 let longitud = json["longitud"] as! Double
                                 let checkins = json["checkins"] as! Int
+                                let comentarios = json["comentarios"] as! Int
+                                let categoria = json["categoria"] as! Int
                                 
                                 self.imagenesArray.append(imagen)
                                 self.descripcionArrayHTML.append(descripcion)
@@ -219,10 +162,13 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
                                 self.latitudArray.append(latitud)
                                 self.longitudArray.append(longitud)
                                 self.checkInArray.append(checkins)
+                                self.comentariosArray.append(comentarios)
+                                self.categoriasArray.append(categoria)
+                                
                             }
                             
                             
-                            for var i = 0; i < self.descripcionArrayHTML.count; i++ {
+                            for i in 0 ..< self.descripcionArrayHTML.count {
                                 
                                 let descripcion = self.descripcionArrayHTML[i].html2String
                                 
@@ -231,12 +177,26 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
                             }
                             
                             
-                                                    
                             
                         }
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
-                            self.tabla.reloadData()
+                            
+                            for i in 0 ..< self.latitudArray.count {
+                                
+                                let localizacionLugar: CLLocationCoordinate2D = CLLocationCoordinate2DMake(CLLocationDegrees(self.latitudArray[i]), CLLocationDegrees(self.longitudArray[i]))
+                               
+                                let point1 = MKPointAnnotation()
+                                
+                                point1.coordinate = localizacionLugar
+                                point1.title = self.tituloArray[i]
+                                point1.subtitle = "Adventure Hike"
+                                self.map.addAnnotation(point1)
+                                
+                            }
+                            
+                            JHProgressHUD.sharedHUD.hide()
+                            
                         })
                         
                         
@@ -269,6 +229,77 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
         task.resume()
         
     }
+    
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation {
+            //return nil so map view draws "blue dot" for standard user location
+            return nil
+        }
+        
+        let reuseId = "pin"
+        
+        var pinView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId) as? MKPinAnnotationView
+        if pinView == nil {
+            pinView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            pinView!.canShowCallout = true
+            pinView!.animatesDrop = true
+            pinView!.pinColor = .Purple
+            
+            let btn = UIButton(type: .DetailDisclosure)
+            pinView!.rightCalloutAccessoryView = btn
+    
+        }
+        else {
+            pinView!.annotation = annotation
+        }
+        
+        return pinView
+    }
+    
+    
+    func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+        
+        print("Tocaste el Pin")
+        tituloDelPin = (view.annotation?.title)!
+        self.performSegueWithIdentifier("detalleEventoSegue", sender: self)
+        
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "detalleEventoSegue" {
+            
+            for i in 0..<tituloArray.count {
+                
+                
+                if tituloArray[i] == tituloDelPin {
+                    
+                    let destinoVC = segue.destinationViewController as! DetalleViewController
+                    destinoVC.imagenRecibida = imagenesArray[i]
+                    destinoVC.descripcionRecibida = descripcionArrayString[i]
+                    destinoVC.fechaRecibida = fechaArray[i]
+                    destinoVC.horarioRecibida = horarioArray[i]
+                    destinoVC.idRecibida = idArray[i]
+                    destinoVC.likedRecibida = likedArray[i]
+                    destinoVC.likenRecibida = likenArray[i]
+                    destinoVC.lugarRecibida = lugarArray[i]
+                    destinoVC.placeRecibida = placeArray[i]
+                    destinoVC.tituloRecibida = tituloArray[i]
+                    destinoVC.latitudRecibida = latitudArray[i]
+                    destinoVC.longitudRecibida = longitudArray[i]
+                    destinoVC.checkInRecibidos = checkInArray[i]
+    
+                }
+                
+            }
+            
+            
+        }
+    }
+
 
     
     func mostraMSJ(msj: String){
@@ -279,6 +310,8 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
         
     }
 
+    
+    
 
     /*
     // MARK: - Navigation

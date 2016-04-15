@@ -731,6 +731,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="checkInLabel" destination="DVl-zu-hue" id="TzS-Qb-oVE"/>
+                                            <outlet property="comentariosLabel" destination="tHP-4F-jn9" id="JhK-gd-jTb"/>
                                             <outlet property="descripcionLabel" destination="5mc-18-IhX" id="p0F-6Q-Ib8"/>
                                             <outlet property="imagenCelda" destination="A53-Cg-RQJ" id="FlM-gs-CDD"/>
                                             <outlet property="likesLabel" destination="bRw-EQ-6Wp" id="dcS-l4-4Kc"/>
@@ -836,7 +837,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="Cgs-55-kcm" kind="relationship" relationship="rootViewController" id="Ljw-ph-O1n"/>
+                        <segue destination="SnM-Tq-L9V" kind="relationship" relationship="rootViewController" id="S7b-sc-RYR"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YgV-BT-oOF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1335,7 +1336,7 @@
                                             <action selector="checkInBoton:" destination="YXl-Nu-vqf" eventType="touchUpInside" id="WLv-Sf-Nd1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-1p-yrh">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-1p-yrh">
                                         <rect key="frame" x="434" y="331" width="141" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="C7v-cZ-iUx"/>
@@ -2072,6 +2073,40 @@
             </objects>
             <point key="canvasLocation" x="999" y="-648"/>
         </scene>
+        <!--Mapa-->
+        <scene sceneID="z9T-Tk-iZR">
+            <objects>
+                <viewController title="Mapa" id="SnM-Tq-L9V" customClass="Mapa2ViewController" customModule="Adventure_Hike" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Xfi-t1-bbJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gqs-QH-hUw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="w4t-N0-s2I">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="9AQ-BH-6Ab">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="9AQ-BH-6Ab" secondAttribute="trailing" id="4Qk-H9-RTA"/>
+                            <constraint firstItem="9AQ-BH-6Ab" firstAttribute="leading" secondItem="w4t-N0-s2I" secondAttribute="leading" id="XYT-1S-T1M"/>
+                            <constraint firstAttribute="bottom" secondItem="9AQ-BH-6Ab" secondAttribute="bottom" id="cXX-ab-9mc"/>
+                            <constraint firstItem="9AQ-BH-6Ab" firstAttribute="top" secondItem="w4t-N0-s2I" secondAttribute="top" id="cfb-lZ-MfS"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mapa" id="xXw-rQ-gKM"/>
+                    <connections>
+                        <outlet property="map" destination="9AQ-BH-6Ab" id="3Rp-Ny-wyQ"/>
+                        <segue destination="YXl-Nu-vqf" kind="show" identifier="detalleEventoSegue" id="NJT-uh-6FT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ho1-3F-x6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2673" y="3053"/>
+        </scene>
         <!--Ubicación-->
         <scene sceneID="MLZ-fT-LPB">
             <objects>
@@ -2091,7 +2126,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TlN-QT-VLe" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2682" y="3057"/>
+            <point key="canvasLocation" x="2698" y="4201"/>
         </scene>
         <!--Mapa Page Items View Controller-->
         <scene sceneID="ywB-bT-aJq">
@@ -2185,7 +2220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aXz-aT-BSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3350" y="3056"/>
+            <point key="canvasLocation" x="3378" y="4206"/>
         </scene>
         <!--Reveal View Controller-->
         <scene sceneID="hk6-LX-Z6r">
@@ -2272,7 +2307,7 @@
                                                         <constraint firstAttribute="height" constant="33" id="Ei8-oB-cg4"/>
                                                         <constraint firstAttribute="width" constant="33" id="jC5-Cv-M6F"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonMuseoSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="qDd-Zo-hOP"/>
                                                     </connections>
@@ -2326,7 +2361,7 @@
                                                         <constraint firstAttribute="width" constant="33" id="0Tt-C2-0Z0"/>
                                                         <constraint firstAttribute="height" constant="33" id="tEa-Uq-QHZ"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonTeatroSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="dad-Uv-rPh"/>
                                                     </connections>
@@ -2373,13 +2408,13 @@
                                                         <constraint firstAttribute="width" constant="35" id="JdQ-5Z-az3"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXm-Je-Vo7">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GXm-Je-Vo7">
                                                     <rect key="frame" x="327" y="5" width="33" height="33"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="33" id="Re3-iV-YC7"/>
                                                         <constraint firstAttribute="width" constant="33" id="jdc-fp-bRQ"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonDanzaSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="9Co-w0-LHa"/>
                                                     </connections>
@@ -2426,7 +2461,7 @@
                                                         <constraint firstAttribute="height" constant="33" id="4kS-8W-bfW"/>
                                                         <constraint firstAttribute="width" constant="33" id="aY9-h9-kUN"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonMusicaSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="8bx-Fy-ZpS"/>
                                                     </connections>
@@ -2470,7 +2505,7 @@
                                                         <constraint firstAttribute="height" constant="33" id="JdD-G4-dsq"/>
                                                         <constraint firstAttribute="width" constant="33" id="bLO-Bu-V2H"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonExposicionesSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="2vl-vn-bZe"/>
                                                     </connections>
@@ -2515,7 +2550,7 @@
                                                         <constraint firstAttribute="height" constant="33" id="qoU-KD-ChD"/>
                                                         <constraint firstAttribute="width" constant="33" id="zHa-2I-Llv"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonLiteraturaSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="m7D-LX-64z"/>
                                                     </connections>
@@ -2560,7 +2595,7 @@
                                                         <constraint firstAttribute="height" constant="33" id="0AC-VP-Qsf"/>
                                                         <constraint firstAttribute="width" constant="33" id="8k3-Lt-bC4"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonCineSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="CvJ-Fn-RGi"/>
                                                     </connections>
@@ -2605,7 +2640,7 @@
                                                         <constraint firstAttribute="height" constant="33" id="o3s-0c-VEV"/>
                                                         <constraint firstAttribute="width" constant="33" id="vgu-XD-BbX"/>
                                                     </constraints>
-                                                    <state key="normal" image="deseleccionadoBoton"/>
+                                                    <state key="normal" image="seleccionadoBoton"/>
                                                     <connections>
                                                         <action selector="botonMonumentosSeleccionado:" destination="JGs-Uw-V2M" eventType="touchUpInside" id="WXn-uR-ki5"/>
                                                     </connections>
@@ -2661,7 +2696,6 @@
         <image name="cineIcono" width="90" height="90"/>
         <image name="corazon" width="42" height="36"/>
         <image name="danzaIcono" width="90" height="90"/>
-        <image name="deseleccionadoBoton" width="90" height="90"/>
         <image name="editarPerfilBoton" width="277" height="66"/>
         <image name="especialesIcono" width="30" height="30"/>
         <image name="exposicionesIcono" width="90" height="90"/>
@@ -2675,6 +2709,7 @@
         <image name="msg" width="114" height="97"/>
         <image name="museoIcono" width="90" height="90"/>
         <image name="musicaIcono" width="90" height="90"/>
+        <image name="seleccionadoBoton" width="90" height="90"/>
         <image name="separador" width="961" height="3"/>
         <image name="tabUbicacion" width="23" height="32"/>
         <image name="teatroIcono" width="90" height="90"/>
@@ -2684,7 +2719,8 @@
         <image name="verEnMapaBoton" width="420" height="104"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MiU-f5-2Kd"/>
         <segue reference="3M5-OF-r8m"/>
+        <segue reference="MiU-f5-2Kd"/>
+        <segue reference="NJT-uh-6FT"/>
     </inferredMetricsTieBreakers>
 </document>

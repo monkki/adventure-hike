@@ -8,6 +8,9 @@
 
 import UIKit
 
+var categoriasPosibles = [1,2,3,4,5,6,7,8]
+var nuevasCategorias = [Int]()
+
 class EspecialesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
@@ -324,6 +327,77 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     func loadList(notification: NSNotification){
         //load data here
         print("Hola putitos")
+        //print(categoriasArray)
+        //filtrarCategorias()
+        //print(nuevasCategorias)
+        
+    }
+    
+    func filtrarCategorias() -> Void {
+        
+        nuevasCategorias.removeAll()
+        
+        for i in 0 ..< categoriasArray.count {
+            
+            
+            if categoriasArray[i] == categoriasPosibles[0] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+               /// categoriaComplemento2.append(categoriaComplemento[i])
+                
+                
+            } else if categoriasArray[i] == categoriasPosibles[1] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+               // categoriaComplemento2.append(categoriaComplemento[i])
+                
+            } else if categoriasArray[i] == categoriasPosibles[2] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+               // categoriaComplemento2.append(categoriaComplemento[i])
+                
+            } else if categoriasArray[i] == categoriasPosibles[3] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+             //   categoriaComplemento2.append(categoriaComplemento[i])
+                
+            } else if categoriasArray[i] == categoriasPosibles[4] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+               // categoriaComplemento2.append(categoriaComplemento[i])
+                
+            } else if categoriasArray[i] == categoriasPosibles[5] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+              //  categoriaComplemento2.append(categoriaComplemento[i])
+                
+            } else if categoriasArray[i] == categoriasPosibles[6] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+             //   categoriaComplemento2.append(categoriaComplemento[i])
+                
+            } else if categoriasArray[i] == categoriasPosibles[7] {
+                
+                
+                nuevasCategorias.append(categoriasArray[i])
+              //  categoriaComplemento2.append(categoriaComplemento[i])
+                
+            } else {
+                
+                //        let index: Int = i
+                //        categoriaComplemento.removeAtIndex(i)
+                
+            }
+            
+        }
+        
     }
     
 

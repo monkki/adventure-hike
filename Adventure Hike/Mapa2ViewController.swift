@@ -75,7 +75,7 @@ class Mapa2ViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         let location = locations.last! as CLLocation
         
         let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1))
+        let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
         
         
         self.map.showsUserLocation = true
@@ -248,6 +248,11 @@ class Mapa2ViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             
             let btn = UIButton(type: .DetailDisclosure)
             pinView!.rightCalloutAccessoryView = btn
+            let leftIconView = UIImageView(frame: CGRectMake(0, 0, 53, 23))
+            
+            
+            leftIconView.image = UIImage(named: "ahLogoInicio")
+            pinView!.leftCalloutAccessoryView = leftIconView
     
         }
         else {

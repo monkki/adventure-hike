@@ -66,11 +66,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonMuseoSeleccionado = true
             botonMuseo.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(0)
+            categoriasPosibles.insert(1, atIndex: 0)
+            print(categoriasPosibles)
+            
         } else {
             
             botonMuseoSeleccionado = false
             botonMuseo.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(0)
+            categoriasPosibles.insert(0, atIndex: 0)
+            print(categoriasPosibles)
         }
         
     }
@@ -82,11 +89,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonTeatroSeleccionado = true
             botonTeatro.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(1)
+            categoriasPosibles.insert(2, atIndex: 1)
+            print(categoriasPosibles)
+            
         } else {
             
             botonTeatroSeleccionado = false
             botonTeatro.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(1)
+            categoriasPosibles.insert(0, atIndex: 1)
+            print(categoriasPosibles)
         }
         
     }
@@ -99,10 +113,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonDanzaSeleccionado = true
             botonDanza.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(2)
+            categoriasPosibles.insert(3, atIndex: 2)
+            print(categoriasPosibles)
+            
         } else {
             
             botonDanzaSeleccionado = false
             botonDanza.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
+            
+            categoriasPosibles.removeAtIndex(2)
+            categoriasPosibles.insert(0, atIndex: 2)
+            print(categoriasPosibles)
             
         }
         
@@ -116,10 +138,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonMusicaSeleccionado = true
             botonMusica.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(3)
+            categoriasPosibles.insert(4, atIndex: 3)
+            print(categoriasPosibles)
+            
         } else {
             
             botonMusicaSeleccionado = false
             botonMusica.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
+            
+            categoriasPosibles.removeAtIndex(3)
+            categoriasPosibles.insert(0, atIndex: 3)
+            print(categoriasPosibles)
             
         }
         
@@ -133,10 +163,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonExposicionesSeleccionado = true
             botonExposiciones.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(4)
+            categoriasPosibles.insert(5, atIndex: 4)
+            print(categoriasPosibles)
+            
         } else {
             
             botonExposicionesSeleccionado = false
             botonExposiciones.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
+            
+            categoriasPosibles.removeAtIndex(4)
+            categoriasPosibles.insert(0, atIndex: 4)
+            print(categoriasPosibles)
             
         }
         
@@ -150,11 +188,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonLiteraturaSeleccionado = true
             botonLiteratura.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(5)
+            categoriasPosibles.insert(6, atIndex: 5)
+            print(categoriasPosibles)
+            
         } else {
             
             botonLiteraturaSeleccionado = false
             botonLiteratura.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(5)
+            categoriasPosibles.insert(0, atIndex: 5)
+            print(categoriasPosibles)
         }
         
     }
@@ -167,11 +212,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonCineSeleccionado = true
             botonCine.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(6)
+            categoriasPosibles.insert(7, atIndex: 6)
+            print(categoriasPosibles)
+            
         } else {
             
             botonCineSeleccionado = false
             botonCine.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(6)
+            categoriasPosibles.insert(0, atIndex: 6)
+            print(categoriasPosibles)
         }
         
     }
@@ -184,11 +236,18 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             botonMonumentosSeleccionado = true
             botonMonumentos.setImage(UIImage(named: "seleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(7)
+            categoriasPosibles.insert(8, atIndex: 7)
+            print(categoriasPosibles)
+            
         } else {
             
             botonMonumentosSeleccionado = false
             botonMonumentos.setImage(UIImage(named: "deseleccionadoBoton"), forState: UIControlState.Normal)
             
+            categoriasPosibles.removeAtIndex(7)
+            categoriasPosibles.insert(0, atIndex: 7)
+            print(categoriasPosibles)
         }
         
     }

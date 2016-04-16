@@ -2264,20 +2264,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="67"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Adventure Hike" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nR4-F0-xSq">
-                                                    <rect key="frame" x="354" y="23" width="206" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ahLogo" translatesAutoresizingMaskIntoConstraints="NO" id="r7a-QM-xHj">
+                                                    <rect key="frame" x="381" y="13" width="105" height="40"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="0NP-RO-oRn"/>
-                                                        <constraint firstAttribute="width" constant="206" id="n3a-CQ-LOO"/>
+                                                        <constraint firstAttribute="height" constant="40" id="4PA-kF-Yax"/>
+                                                        <constraint firstAttribute="width" constant="105" id="Dzq-vK-Heb"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AvenirNextCondensed-Medium" family="Avenir Next Condensed" pointSize="26"/>
-                                                    <color key="textColor" red="0.98269807450000002" green="0.98269807450000002" blue="0.98269807450000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="nR4-F0-xSq" firstAttribute="top" secondItem="pRz-O3-sdP" secondAttribute="topMargin" constant="15" id="foW-Ys-fCI"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="nR4-F0-xSq" secondAttribute="trailing" constant="32" id="tWd-9e-jSU"/>
+                                                <constraint firstItem="r7a-QM-xHj" firstAttribute="top" secondItem="pRz-O3-sdP" secondAttribute="topMargin" constant="5" id="5Rj-UW-TGv"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="r7a-QM-xHj" secondAttribute="trailing" constant="106" id="rHI-HZ-Xnq"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -2690,6 +2687,7 @@
         <image name="HorarioIcono" width="31" height="31"/>
         <image name="PerfilIcono" width="33" height="29"/>
         <image name="agendaIconoAmarillo" width="30" height="31"/>
+        <image name="ahLogo" width="158" height="61"/>
         <image name="background" width="387" height="667"/>
         <image name="candadoIcono" width="106" height="107"/>
         <image name="cerrar" width="100" height="101"/>

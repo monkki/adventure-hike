@@ -26,9 +26,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().barTintColor = UIColor.blackColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
-        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBar.appearance().tintColor = UIColor.redColor()
         UITabBar.appearance().barTintColor = UIColor.blackColor()
-        UITabBar.appearance().backgroundColor = UIColor.darkGrayColor()
+        UITabBar.appearance().backgroundColor = UIColor.whiteColor()
+        
         
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

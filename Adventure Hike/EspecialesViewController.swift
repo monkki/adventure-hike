@@ -70,7 +70,7 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
         
-        self.view.backgroundColor = UIColor.lightGrayColor()
+        //self.view.backgroundColor = UIColor.lightGrayColor()
         self.tabla.backgroundColor = UIColor.clearColor()
         
         obtenerJson()
@@ -322,19 +322,19 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
         if segue.identifier == "detalleSegue" {
             let indexPath = tabla.indexPathForSelectedRow
             let destinoVC = segue.destinationViewController as! DetalleViewController
-            destinoVC.imagenRecibida = imagenesArray[(indexPath?.row)!]
-            destinoVC.descripcionRecibida = descripcionArrayString[(indexPath?.row)!]
-            destinoVC.fechaRecibida = fechaArray[(indexPath?.row)!]
-            destinoVC.horarioRecibida = horarioArray[(indexPath?.row)!]
-            destinoVC.idRecibida = idArray[(indexPath?.row)!]
-            destinoVC.likedRecibida = likedArray[(indexPath?.row)!]
-            destinoVC.likenRecibida = likenArray[(indexPath?.row)!]
-            destinoVC.lugarRecibida = lugarArray[(indexPath?.row)!]
-            destinoVC.placeRecibida = placeArray[(indexPath?.row)!]
-            destinoVC.tituloRecibida = tituloArray[(indexPath?.row)!]
-            destinoVC.latitudRecibida = latitudArray[(indexPath?.row)!]
-            destinoVC.longitudRecibida = longitudArray[(indexPath?.row)!]
-            destinoVC.checkInRecibidos = checkInArray[(indexPath?.row)!]
+            destinoVC.imagenRecibida = imagenesArrayFiltrado[(indexPath?.row)!]
+            destinoVC.descripcionRecibida = descripcionArrayStringFiltrado[(indexPath?.row)!]
+            destinoVC.fechaRecibida = fechaArrayFiltrado[(indexPath?.row)!]
+            destinoVC.horarioRecibida = horarioArrayFiltrado[(indexPath?.row)!]
+            destinoVC.idRecibida = idArrayFiltrado[(indexPath?.row)!]
+            destinoVC.likedRecibida = likedArrayFiltrado[(indexPath?.row)!]
+            destinoVC.likenRecibida = likenArrayFiltrado[(indexPath?.row)!]
+            destinoVC.lugarRecibida = lugarArrayFiltrado[(indexPath?.row)!]
+            destinoVC.placeRecibida = placeArrayFiltrado[(indexPath?.row)!]
+            destinoVC.tituloRecibida = tituloArrayFiltrado[(indexPath?.row)!]
+            destinoVC.latitudRecibida = latitudArrayFiltrado[(indexPath?.row)!]
+            destinoVC.longitudRecibida = longitudArrayFiltrado[(indexPath?.row)!]
+            destinoVC.checkInRecibidos = checkInArrayFiltrado[(indexPath?.row)!]
         }
     }
     

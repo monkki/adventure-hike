@@ -1336,7 +1336,7 @@
                                             <action selector="checkInBoton:" destination="YXl-Nu-vqf" eventType="touchUpInside" id="WLv-Sf-Nd1"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-1p-yrh">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNK-1p-yrh">
                                         <rect key="frame" x="434" y="331" width="141" height="14"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="14" id="C7v-cZ-iUx"/>

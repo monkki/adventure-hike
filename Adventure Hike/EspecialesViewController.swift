@@ -9,7 +9,7 @@
 import UIKit
 
 var categoriasPosibles = [1,2,3,4,5,6,7,8]
-var nuevasCategorias = [Int]()
+var nuevasCategorias = [1,2,3,4,5,6,7,8]
 
 class EspecialesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -34,10 +34,30 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     var comentariosArray = [Int]()
     var categoriasArray = [Int]()
     
+    // Filtradas
+    var imagenesArrayFiltrado = [String]()
+    var imagenesArrayUIImageViewsFiltrado = [UIImage]()
+    var descripcionArrayHTMLFiltrado = [String]()
+    var descripcionArrayStringFiltrado = [String]()
+    var fechaArrayFiltrado = [String]()
+    var horarioArrayFiltrado = [String]()
+    var idArrayFiltrado = [Int]()
+    var likedArrayFiltrado = [Int]()
+    var likenArrayFiltrado = [Int]()
+    var lugarArrayFiltrado = [Int]()
+    var placeArrayFiltrado = [String]()
+    var tituloArrayFiltrado = [String]()
+    var latitudArrayFiltrado = [Double]()
+    var longitudArrayFiltrado = [Double]()
+    var checkInArrayFiltrado = [Int]()
+    var comentariosArrayFiltrado = [Int]()
+    var categoriasArrayFiltrado = [Int]()
+    
     @IBOutlet var filtrarButton:UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(EspecialesViewController.loadList(_:)),name:"load", object: nil)
         
@@ -104,6 +124,7 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                         self.longitudArray.removeAll()
                         self.checkInArray.removeAll()
                         
+                        
                         let jsonResult = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers) as! NSArray
                         
                         print(jsonResult)
@@ -144,6 +165,22 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                                 self.comentariosArray.append(comentarios)
                                 self.categoriasArray.append(categoria)
                                 
+                                self.imagenesArrayFiltrado.append(imagen)
+                                self.descripcionArrayHTMLFiltrado.append(descripcion)
+                                self.fechaArrayFiltrado.append(fecha)
+                                self.horarioArrayFiltrado.append(horario)
+                                self.idArrayFiltrado.append(id)
+                                self.likedArrayFiltrado.append(liked)
+                                self.likenArrayFiltrado.append(liken)
+                                self.lugarArrayFiltrado.append(lugar)
+                                self.placeArrayFiltrado.append(place)
+                                self.tituloArrayFiltrado.append(titulo)
+                                self.latitudArrayFiltrado.append(latitud)
+                                self.longitudArrayFiltrado.append(longitud)
+                                self.checkInArrayFiltrado.append(checkins)
+                                self.comentariosArrayFiltrado.append(comentarios)
+                                self.categoriasArrayFiltrado.append(categoria)
+                                
                             }
                         
                         
@@ -152,34 +189,17 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                                 let descripcion = self.descripcionArrayHTML[i].html2String
                             
                                 self.descripcionArrayString.append(descripcion)
-                            
+                                self.descripcionArrayStringFiltrado.append(descripcion)
                             }
                             
                             
-//                            for var i = 0; i < self.imagenesArray.count; i++ {
-//                                
-//                                let image_url = NSURL(string: self.imagenesArray[i])
-//                                
-//                                let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
-//                                dispatch_async(dispatch_get_global_queue(priority, 0)) {
-//                                    // do some task
-//                                    let image_data = NSData(contentsOfURL: image_url!)
-//                                    
-//                                    dispatch_async(dispatch_get_main_queue()) {
-//                                        // update some UI
-//                                        let image = UIImage(data: image_data!)
-//                                        self.imagenesArrayUIImageViews.append(image!)
-//                                    }
-//                                }
-//
-//                                
-//                            }
-
-                            
+                           
                             
                         }
+
                         
                         dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                            
                            self.tabla.reloadData()
                         })
                         
@@ -210,6 +230,8 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
             
         })
        
+        
+        
         task.resume()
         
     }
@@ -231,7 +253,7 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return descripcionArrayString.count
+        return descripcionArrayStringFiltrado.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -249,9 +271,9 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
         }
         
             
-        if self.descripcionArrayString.count > 0 {
+        if self.descripcionArrayStringFiltrado.count > 0 {
                 
-            let image_url = NSURL(string: self.imagenesArray[indexPath.row])
+            let image_url = NSURL(string: self.imagenesArrayFiltrado[indexPath.row])
                 
             let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
             dispatch_async(dispatch_get_global_queue(priority, 0)) {
@@ -271,11 +293,11 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                     
             }
                 
-            cell.tituloLabel.text = self.tituloArray[indexPath.row].uppercaseString
-            cell.checkInLabel.text = "\(self.checkInArray[indexPath.row])"
-            cell.likesLabel.text = "\(self.likenArray[indexPath.row])"
-            cell.descripcionLabel.text = self.descripcionArrayString[indexPath.row]
-            cell.comentariosLabel.text = "\(self.comentariosArray[indexPath.row])"
+            cell.tituloLabel.text = self.tituloArrayFiltrado[indexPath.row].uppercaseString
+            cell.checkInLabel.text = "\(self.checkInArrayFiltrado[indexPath.row])"
+            cell.likesLabel.text = "\(self.likenArrayFiltrado[indexPath.row])"
+            cell.descripcionLabel.text = self.descripcionArrayStringFiltrado[indexPath.row]
+            cell.comentariosLabel.text = "\(self.comentariosArrayFiltrado[indexPath.row])"
                 
         }
             
@@ -327,68 +349,251 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
     func loadList(notification: NSNotification){
         //load data here
         print("Hola putitos")
-        //print(categoriasArray)
-        //filtrarCategorias()
-        //print(nuevasCategorias)
+ 
+/*
+        if imagenesArrayFiltrado.count > 0 {
+            
+            self.imagenesArrayFiltrado.removeLast()
+            self.descripcionArrayHTMLFiltrado.removeLast()
+            self.fechaArrayFiltrado.removeLast()
+            self.horarioArrayFiltrado.removeLast()
+            self.idArrayFiltrado.removeLast()
+            self.likedArrayFiltrado.removeLast()
+            self.likenArrayFiltrado.removeLast()
+            self.lugarArrayFiltrado.removeLast()
+            self.placeArrayFiltrado.removeLast()
+            self.tituloArrayFiltrado.removeLast()
+            self.latitudArrayFiltrado.removeLast()
+            self.longitudArrayFiltrado.removeLast()
+            self.checkInArrayFiltrado.removeLast()
+            self.comentariosArrayFiltrado.removeLast()
+            self.categoriasArrayFiltrado.removeLast()
+            self.descripcionArrayStringFiltrado.removeLast()
+            
+        }
+ */
+        print("Nuevas categorias es \(categoriasPosibles)")
+        filtrarCategorias()
+        
+        tabla.reloadData()
         
     }
     
     func filtrarCategorias() -> Void {
         
-        nuevasCategorias.removeAll()
+        self.imagenesArrayFiltrado.removeAll()
+        self.descripcionArrayHTMLFiltrado.removeAll()
+        self.fechaArrayFiltrado.removeAll()
+        self.horarioArrayFiltrado.removeAll()
+        self.idArrayFiltrado.removeAll()
+        self.likedArrayFiltrado.removeAll()
+        self.likenArrayFiltrado.removeAll()
+        self.lugarArrayFiltrado.removeAll()
+        self.placeArrayFiltrado.removeAll()
+        self.tituloArrayFiltrado.removeAll()
+        self.latitudArrayFiltrado.removeAll()
+        self.longitudArrayFiltrado.removeAll()
+        self.checkInArrayFiltrado.removeAll()
+        self.comentariosArrayFiltrado.removeAll()
+        self.categoriasArrayFiltrado.removeAll()
+        self.descripcionArrayStringFiltrado.removeAll()
+        
+        print("Categorias array filtrado \(categoriasArray)")
         
         for i in 0 ..< categoriasArray.count {
             
             
             if categoriasArray[i] == categoriasPosibles[0] {
                 
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
                 
-                nuevasCategorias.append(categoriasArray[i])
+                
+               // nuevasCategorias.append(categoriasArray[i])
                /// categoriaComplemento2.append(categoriaComplemento[i])
                 
                 
             } else if categoriasArray[i] == categoriasPosibles[1] {
                 
                 
-                nuevasCategorias.append(categoriasArray[i])
-               // categoriaComplemento2.append(categoriaComplemento[i])
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
+                
+                
+                // nuevasCategorias.append(categoriasArray[i])
+                /// categoriaComplemento2.append(categoriaComplemento[i])
                 
             } else if categoriasArray[i] == categoriasPosibles[2] {
                 
                 
-                nuevasCategorias.append(categoriasArray[i])
-               // categoriaComplemento2.append(categoriaComplemento[i])
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
+                
+                
+                // nuevasCategorias.append(categoriasArray[i])
+                /// categoriaComplemento2.append(categoriaComplemento[i])
                 
             } else if categoriasArray[i] == categoriasPosibles[3] {
                 
                 
-                nuevasCategorias.append(categoriasArray[i])
-             //   categoriaComplemento2.append(categoriaComplemento[i])
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
+                
+                
+                // nuevasCategorias.append(categoriasArray[i])
+                /// categoriaComplemento2.append(categoriaComplemento[i])
                 
             } else if categoriasArray[i] == categoriasPosibles[4] {
                 
                 
-                nuevasCategorias.append(categoriasArray[i])
-               // categoriaComplemento2.append(categoriaComplemento[i])
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
+                
+                
+                // nuevasCategorias.append(categoriasArray[i])
+                /// categoriaComplemento2.append(categoriaComplemento[i])
                 
             } else if categoriasArray[i] == categoriasPosibles[5] {
                 
                 
-                nuevasCategorias.append(categoriasArray[i])
-              //  categoriaComplemento2.append(categoriaComplemento[i])
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
+                
+                
+                // nuevasCategorias.append(categoriasArray[i])
+                /// categoriaComplemento2.append(categoriaComplemento[i])
                 
             } else if categoriasArray[i] == categoriasPosibles[6] {
                 
                 
-                nuevasCategorias.append(categoriasArray[i])
-             //   categoriaComplemento2.append(categoriaComplemento[i])
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
+                
+                
+                // nuevasCategorias.append(categoriasArray[i])
+                /// categoriaComplemento2.append(categoriaComplemento[i])
                 
             } else if categoriasArray[i] == categoriasPosibles[7] {
                 
                 
-                nuevasCategorias.append(categoriasArray[i])
-              //  categoriaComplemento2.append(categoriaComplemento[i])
+                self.imagenesArrayFiltrado.append(imagenesArray[i])
+                self.descripcionArrayHTMLFiltrado.append(descripcionArrayHTML[i])
+                self.fechaArrayFiltrado.append(fechaArray[i])
+                self.horarioArrayFiltrado.append(horarioArray[i])
+                self.idArrayFiltrado.append(idArray[i])
+                self.likedArrayFiltrado.append(likedArray[i])
+                self.likenArrayFiltrado.append(likenArray[i])
+                self.lugarArrayFiltrado.append(lugarArray[i])
+                self.placeArrayFiltrado.append(placeArray[i])
+                self.tituloArrayFiltrado.append(tituloArray[i])
+                self.latitudArrayFiltrado.append(latitudArray[i])
+                self.longitudArrayFiltrado.append(longitudArray[i])
+                self.checkInArrayFiltrado.append(checkInArray[i])
+                self.comentariosArrayFiltrado.append(comentariosArray[i])
+                self.categoriasArrayFiltrado.append(categoriasArray[i])
+                self.descripcionArrayStringFiltrado.append(descripcionArrayString[i])
                 
+                
+                // nuevasCategorias.append(categoriasArray[i])
+                /// categoriaComplemento2.append(categoriaComplemento[i])
             } else {
                 
                 //        let index: Int = i

@@ -68,6 +68,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(0)
             categoriasPosibles.insert(1, atIndex: 0)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -77,6 +78,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(0)
             categoriasPosibles.insert(0, atIndex: 0)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
         }
         
@@ -91,6 +93,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(1)
             categoriasPosibles.insert(2, atIndex: 1)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -100,6 +103,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(1)
             categoriasPosibles.insert(0, atIndex: 1)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
         }
         
@@ -115,6 +119,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(2)
             categoriasPosibles.insert(3, atIndex: 2)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -124,6 +129,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(2)
             categoriasPosibles.insert(0, atIndex: 2)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         }
@@ -140,6 +146,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(3)
             categoriasPosibles.insert(4, atIndex: 3)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -149,6 +156,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(3)
             categoriasPosibles.insert(0, atIndex: 3)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         }
@@ -165,6 +173,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(4)
             categoriasPosibles.insert(5, atIndex: 4)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -174,6 +183,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(4)
             categoriasPosibles.insert(0, atIndex: 4)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         }
@@ -190,6 +200,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(5)
             categoriasPosibles.insert(6, atIndex: 5)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -199,6 +210,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(5)
             categoriasPosibles.insert(0, atIndex: 5)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
         }
         
@@ -214,6 +226,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(6)
             categoriasPosibles.insert(7, atIndex: 6)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -223,6 +236,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(6)
             categoriasPosibles.insert(0, atIndex: 6)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
         }
         
@@ -238,6 +252,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(7)
             categoriasPosibles.insert(8, atIndex: 7)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
             
         } else {
@@ -247,6 +262,7 @@ class TablaLateralViewController: UITableViewController, SWRevealViewControllerD
             
             categoriasPosibles.removeAtIndex(7)
             categoriasPosibles.insert(0, atIndex: 7)
+            nuevasCategorias = categoriasPosibles
             print(categoriasPosibles)
         }
         

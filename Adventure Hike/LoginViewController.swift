@@ -312,7 +312,10 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFie
                                 
                                 let correo = json["correo"] as! String
                                 let display = json["display"] as! String
-                                let fbid = json["fbid"] as! Int
+                                if let fbid = json["fbid"] as? Int {
+                                    print(fbid)
+                                    NSUserDefaults.standardUserDefaults().setObject(fbid, forKey: "fbid")
+                                }
                                 let fechaNac = json["fecha_nac"] as! String
                                 let idUsuario = json["id"] as! Int
                                 let nickname = json["nickname"] as! String
@@ -321,7 +324,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFie
                                 
                                 print(correo)
                                 print(display)
-                                print(fbid)
                                 print(fechaNac)
                                 print(String(idUsuario))
                                 print(nickname)
@@ -329,7 +331,6 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFie
                                 print(token)
                                 
                                 NSUserDefaults.standardUserDefaults().setObject(token, forKey: "tokenServer")
-                                NSUserDefaults.standardUserDefaults().setObject(fbid, forKey: "fbid")
                                 NSUserDefaults.standardUserDefaults().setObject(idUsuario, forKey: "idUsuario")
                                 NSUserDefaults.standardUserDefaults().setObject(nombre, forKey: "nombre")
                                 NSUserDefaults.standardUserDefaults().synchronize()

@@ -53,7 +53,7 @@ class RegistrarViewController: UIViewController, FBSDKLoginButtonDelegate, UITex
         contraseñaTextfield.delegate = self
         reescribeContraseñaTextfield.delegate = self
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(RegistrarViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
         if (FBSDKAccessToken.currentAccessToken() != nil) {
@@ -74,8 +74,8 @@ class RegistrarViewController: UIViewController, FBSDKLoginButtonDelegate, UITex
         toolBar.barStyle = UIBarStyle.BlackTranslucent
         toolBar.tintColor = UIColor.whiteColor()
         toolBar.backgroundColor = UIColor.darkGrayColor()
-        let todayBtn = UIBarButtonItem(title: "Cancelar", style: UIBarButtonItemStyle.Plain, target: self, action: "donePressed:")
-        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "donePressed:")
+        let todayBtn = UIBarButtonItem(title: "Cancelar", style: UIBarButtonItemStyle.Plain, target: self, action: #selector(RegistrarViewController.donePressed(_:)))
+        let okBarBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: #selector(RegistrarViewController.donePressed(_:)))
         let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace, target: self, action: nil)
         let label = UILabel(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width / 3, height: self.view.frame.size.height))
         label.font = UIFont(name: "Helvetica", size: 10)
@@ -447,7 +447,7 @@ class RegistrarViewController: UIViewController, FBSDKLoginButtonDelegate, UITex
         
         sender.inputView = datePickerView
         
-        datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"), forControlEvents: UIControlEvents.ValueChanged)
+        datePickerView.addTarget(self, action: #selector(RegistrarViewController.datePickerValueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
         
     }
     

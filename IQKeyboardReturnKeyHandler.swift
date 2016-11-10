@@ -310,7 +310,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         
-        if delegate?.respondsToSelector("textFieldShouldBeginEditing:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextFieldDelegate.textFieldShouldBeginEditing(_:))) != nil {
             return (delegate?.textFieldShouldBeginEditing?(textField) == true)
         } else {
             return true
@@ -319,7 +319,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textFieldShouldEndEditing(textField: UITextField) -> Bool {
         
-        if delegate?.respondsToSelector("textFieldShouldEndEditing:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextFieldDelegate.textFieldShouldEndEditing(_:))) != nil {
             return (delegate?.textFieldShouldEndEditing?(textField) == true)
         } else {
             return true
@@ -339,7 +339,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
-        if delegate?.respondsToSelector("textField:shouldChangeCharactersInRange:replacementString:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextFieldDelegate.textField(_:shouldChangeCharactersInRange:replacementString:))) != nil {
             return (delegate?.textField?(textField, shouldChangeCharactersInRange: range, replacementString: string) == true)
         } else {
             return true
@@ -348,7 +348,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textFieldShouldClear(textField: UITextField) -> Bool {
         
-        if delegate?.respondsToSelector("textFieldShouldClear:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextFieldDelegate.textFieldShouldClear(_:))) != nil {
             return (delegate?.textFieldShouldClear?(textField) == true)
         } else {
             return true
@@ -360,7 +360,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
         
         var shouldReturn = true
         
-        if delegate?.respondsToSelector("textFieldShouldReturn:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextFieldDelegate.textFieldShouldReturn(_:))) != nil {
             shouldReturn = (delegate?.textFieldShouldReturn?(textField) == true)
         }
         
@@ -374,7 +374,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textViewShouldBeginEditing(textView: UITextView) -> Bool {
         
-        if delegate?.respondsToSelector("textViewShouldBeginEditing:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextViewDelegate.textViewShouldBeginEditing(_:))) != nil {
             return (delegate?.textViewShouldBeginEditing?(textView) == true)
         } else {
             return true
@@ -383,7 +383,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textViewShouldEndEditing(textView: UITextView) -> Bool {
         
-        if delegate?.respondsToSelector("textViewShouldEndEditing:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextViewDelegate.textViewShouldEndEditing(_:))) != nil {
             return (delegate?.textViewShouldEndEditing?(textView) == true)
         } else {
             return true
@@ -429,7 +429,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textView(textView: UITextView, shouldInteractWithURL URL: NSURL, inRange characterRange: NSRange) -> Bool {
         
-        if delegate?.respondsToSelector("textView:shouldInteractWithURL:inRange:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextViewDelegate.textView(_:shouldInteractWithURL:inRange:))) != nil {
             return ((delegate?.textView?(textView, shouldInteractWithURL: URL, inRange: characterRange)) == true)
         } else {
             return true
@@ -439,7 +439,7 @@ public class IQKeyboardReturnKeyHandler: NSObject , UITextFieldDelegate, UITextV
     
     public func textView(textView: UITextView, shouldInteractWithTextAttachment textAttachment: NSTextAttachment, inRange characterRange: NSRange) -> Bool {
         
-        if delegate?.respondsToSelector("textView:shouldInteractWithTextAttachment:inRange:") != nil {
+        if delegate?.respondsToSelector(#selector(UITextViewDelegate.textView(_:shouldInteractWithTextAttachment:inRange:))) != nil {
             return ((delegate?.textView?(textView, shouldInteractWithTextAttachment: textAttachment, inRange: characterRange)) == true)
         } else {
             return true

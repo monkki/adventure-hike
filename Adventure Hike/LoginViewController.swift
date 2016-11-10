@@ -40,7 +40,7 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate, UITextFie
         emailTextfield.delegate = self
         contraseñaTextfield.delegate = self
 
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(LoginViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
         

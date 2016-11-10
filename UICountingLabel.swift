@@ -37,7 +37,7 @@ class UICountingLabel : UILabel
             self.totalTime = duration
             self.lastUpdate = NSDate.timeIntervalSinceReferenceDate()
             
-            let timer = NSTimer(timeInterval:(1.0/30.0), target:self, selector:"updateValue:", userInfo:nil, repeats:true)
+            let timer = NSTimer(timeInterval:(1.0/30.0), target:self, selector:#selector(UICountingLabel.updateValue(_:)), userInfo:nil, repeats:true)
             
             NSRunLoop.mainRunLoop().addTimer(timer, forMode: NSRunLoopCommonModes)
             NSRunLoop.mainRunLoop().addTimer(timer, forMode: UITrackingRunLoopMode)

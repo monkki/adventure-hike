@@ -248,7 +248,7 @@ class JHProgressHUD: UIView
     // MARK: -Set Font
     func boldFontWithFont(font : UIFont?) -> UIFont
     {
-        let fontDescriptor : UIFontDescriptor = font!.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+        let fontDescriptor : UIFontDescriptor = font!.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)!
         return UIFont(descriptor: fontDescriptor, size: 0)
     }
     

@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		582254B986270E97F0CEFB20 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B6D2E81BCA0F4E63176966 /* Pods.framework */; };
 		5C08F53C1C3F1B9C00D58C8A /* UICountingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08F53B1C3F1B9C00D58C8A /* UICountingLabel.swift */; };
 		5C08F53E1C3F1BD300D58C8A /* AgendaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08F53D1C3F1BD300D58C8A /* AgendaViewController.swift */; };
 		5C08F5401C3F1DA400D58C8A /* PerfilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C08F53F1C3F1DA400D58C8A /* PerfilViewController.swift */; };
@@ -60,6 +59,7 @@
 		5CF7E20F1C3B13F5001A21AA /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7E20E1C3B13F5001A21AA /* TableViewCell.swift */; };
 		5CF7E2121C3B559A001A21AA /* JHProgressHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7E2111C3B559A001A21AA /* JHProgressHUD.swift */; };
 		5CF7E2141C3B6E52001A21AA /* DetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7E2131C3B6E52001A21AA /* DetalleViewController.swift */; };
+		9E2AE4F04CE44D31781E0E20 /* Pods_Adventure_Hike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DB98E4EF9F0F226330C972E /* Pods_Adventure_Hike.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,8 +121,9 @@
 		5CF7E20E1C3B13F5001A21AA /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		5CF7E2111C3B559A001A21AA /* JHProgressHUD.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JHProgressHUD.swift; sourceTree = "<group>"; };
 		5CF7E2131C3B6E52001A21AA /* DetalleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleViewController.swift; sourceTree = "<group>"; };
-		B54DD1AF834E4EF6C2122B48 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		BEE5BEA96E258971A8939625 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		7DB98E4EF9F0F226330C972E /* Pods_Adventure_Hike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Adventure_Hike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEE0AD6FC1C06E61F90A45CC /* Pods-Adventure Hike.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adventure Hike.release.xcconfig"; path = "Pods/Target Support Files/Pods-Adventure Hike/Pods-Adventure Hike.release.xcconfig"; sourceTree = "<group>"; };
+		CA2A30A7014A9B1C1DFDF818 /* Pods-Adventure Hike.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Adventure Hike.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Adventure Hike/Pods-Adventure Hike.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,10 +134,10 @@
 				5CF042571C56942300E59C0A /* libkontakt-ios-sdk.a in Frameworks */,
 				5C29C9F61C52C4030053AD46 /* AVFoundation.framework in Frameworks */,
 				5C3F1CDC1C4F0B58007BAE4A /* Social.framework in Frameworks */,
-				582254B986270E97F0CEFB20 /* Pods.framework in Frameworks */,
 				5C4636FB1C46F3FD00522DD3 /* FBSDKCoreKit.framework in Frameworks */,
 				5C4637021C46F7EF00522DD3 /* FBSDKLoginKit.framework in Frameworks */,
 				5C4636FC1C46F3FE00522DD3 /* FBSDKShareKit.framework in Frameworks */,
+				9E2AE4F04CE44D31781E0E20 /* Pods_Adventure_Hike.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,8 +172,8 @@
 				5C7EE5F91C39D53D00DB77EE /* Adventure Hike */,
 				5CF7E2101C3B5559001A21AA /* Clases Auxiliares */,
 				5C7EE5F81C39D53D00DB77EE /* Products */,
-				7307ACC263CCFE6FD11BBF41 /* Pods */,
 				6D3A8CA89D846D3D318629CF /* Frameworks */,
+				7CF6458D42726C76AE50ABD7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -244,15 +245,16 @@
 				5C4636F91C46F3FD00522DD3 /* FBSDKCoreKit.framework */,
 				5C4636FA1C46F3FD00522DD3 /* FBSDKShareKit.framework */,
 				10B6D2E81BCA0F4E63176966 /* Pods.framework */,
+				7DB98E4EF9F0F226330C972E /* Pods_Adventure_Hike.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		7307ACC263CCFE6FD11BBF41 /* Pods */ = {
+		7CF6458D42726C76AE50ABD7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BEE5BEA96E258971A8939625 /* Pods.debug.xcconfig */,
-				B54DD1AF834E4EF6C2122B48 /* Pods.release.xcconfig */,
+				CA2A30A7014A9B1C1DFDF818 /* Pods-Adventure Hike.debug.xcconfig */,
+				AEE0AD6FC1C06E61F90A45CC /* Pods-Adventure Hike.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -264,12 +266,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5C7EE6091C39D53D00DB77EE /* Build configuration list for PBXNativeTarget "Adventure Hike" */;
 			buildPhases = (
-				BA6888E5FF57B059730A1840 /* Check Pods Manifest.lock */,
+				17934D6E3EF339A95C685BA4 /* [CP] Check Pods Manifest.lock */,
 				5C7EE5F31C39D53D00DB77EE /* Sources */,
 				5C7EE5F41C39D53D00DB77EE /* Frameworks */,
 				5C7EE5F51C39D53D00DB77EE /* Resources */,
-				54603C5779B7136503D2182D /* Embed Pods Frameworks */,
-				2DB05C808EB9DA37AD2959C0 /* Copy Pods Resources */,
+				82A0A53FB71BF1E5F392B0F2 /* [CP] Embed Pods Frameworks */,
+				31BEA4A3E1741003CD3FA962 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -293,6 +295,8 @@
 					5C7EE5F61C39D53D00DB77EE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = REK84A4F47;
+						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -336,49 +340,49 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2DB05C808EB9DA37AD2959C0 /* Copy Pods Resources */ = {
+		17934D6E3EF339A95C685BA4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		54603C5779B7136503D2182D /* Embed Pods Frameworks */ = {
+		31BEA4A3E1741003CD3FA962 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Adventure Hike/Pods-Adventure Hike-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BA6888E5FF57B059730A1840 /* Check Pods Manifest.lock */ = {
+		82A0A53FB71BF1E5F392B0F2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Adventure Hike/Pods-Adventure Hike-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -540,12 +544,13 @@
 		};
 		5C7EE60A1C39D53D00DB77EE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BEE5BEA96E258971A8939625 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = CA2A30A7014A9B1C1DFDF818 /* Pods-Adventure Hike.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: GENEXP SA DE CV (REK84A4F47)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: GENEXP SA DE CV (REK84A4F47)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -575,10 +580,12 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somospulso.Adventure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6aa7a41a-77f4-4730-b677-242c013a40b5";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Adventure Hike/Adventure Hike-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};
@@ -586,12 +593,13 @@
 		};
 		5C7EE60B1C39D53D00DB77EE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B54DD1AF834E4EF6C2122B48 /* Pods.release.xcconfig */;
+			baseConfigurationReference = AEE0AD6FC1C06E61F90A45CC /* Pods-Adventure Hike.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: GENEXP SA DE CV (REK84A4F47)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: GENEXP SA DE CV (REK84A4F47)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -621,9 +629,11 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somospulso.Adventure;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6aa7a41a-77f4-4730-b677-242c013a40b5";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SWIFT_OBJC_BRIDGING_HEADER = "Adventure Hike/Adventure Hike-Bridging-Header.h";
+				SWIFT_VERSION = 2.3;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7 armv7s";
 			};

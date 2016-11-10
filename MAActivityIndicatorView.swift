@@ -181,7 +181,7 @@ public class MAActivityIndicatorView: UIView {
     /// - returns: The animation of the circle.
     private func createAnimationWithDuration(duration:Double, delay:Double) -> CABasicAnimation {
         let animation = CABasicAnimation(keyPath:"transform.scale")
-        animation.delegate              = self
+      //  animation.delegate              = self
         animation.fromValue             = 0
         animation.toValue               = 1
         animation.autoreverses          = true

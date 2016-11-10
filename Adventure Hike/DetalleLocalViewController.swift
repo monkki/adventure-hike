@@ -222,7 +222,7 @@ class DetalleLocalViewController: UIViewController, UITableViewDelegate, UITable
                             }
                             
                             
-                            for var i = 0; i < self.descripcionArrayHTML.count; i++ {
+                            for i in 0 ..< self.descripcionArrayHTML.count {
                                 
                                 let descripcion = self.descripcionArrayHTML[i].html2String
                                 

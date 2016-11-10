@@ -177,7 +177,7 @@ class DetalleViewController: UIViewController, UITableViewDataSource, UITableVie
         botonCorazon.imageColorOn = UIColor(red: 254/255, green: 110/255, blue: 111/255, alpha: 1.0)
         botonCorazon.circleColor = UIColor(red: 254/255, green: 110/255, blue: 111/255, alpha: 1.0)
         botonCorazon.lineColor = UIColor(red: 226/255, green: 96/255, blue: 96/255, alpha: 1.0)
-        botonCorazon.addTarget(self, action: Selector("likeButton:"), forControlEvents: UIControlEvents.TouchUpInside)
+        botonCorazon.addTarget(self, action: #selector(DetalleViewController.likeButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
         
         if likedRecibida == 0 {
             botonCorazon.deselect()

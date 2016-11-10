@@ -65,7 +65,7 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
             
             revealViewController().rightViewRevealWidth = 290
             filtrarButton.target = revealViewController()
-            filtrarButton.action = "rightRevealToggle:"
+            filtrarButton.action = #selector(SWRevealViewController.rightRevealToggle(_:))
             
             view.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         }
@@ -184,7 +184,7 @@ class EspecialesViewController: UIViewController, UITableViewDataSource, UITable
                             }
                         
                         
-                            for var i = 0; i < self.descripcionArrayHTML.count; i++ {
+                            for i in 0 ..< self.descripcionArrayHTML.count {
                             
                                 let descripcion = self.descripcionArrayHTML[i].html2String
                             
